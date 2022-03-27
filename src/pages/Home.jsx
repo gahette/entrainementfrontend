@@ -1,11 +1,12 @@
 import React from "react";
-import Navigation from "../components/Navigation";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
     <div>
-        <Navigation/>
-      <h1>Accueil</h1>
+        <Header/>
+     <h1>Charles Cantin</h1>
+        <h2>Photohraphe</h2>
     </div>
   );
 }
