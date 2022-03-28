@@ -6,6 +6,7 @@
 }
 
 .navigation {
+  @include verticalCenter;
   text-transform: capitalize;
   background: $color-1;
 

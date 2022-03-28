@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import Legacy from "./pages/Legacy";
 
 export default function App() {
     return (
@@ -12,6 +13,7 @@ export default function App() {
             <Route path="/tarifs&prestations" element={<Pricing/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="*" element={<Home/>}/>
+            <Route path="/mentionslegales" element={<Legacy/>}/>
         </Routes>
 
     );
