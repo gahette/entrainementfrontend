@@ -1,0 +1,24 @@
+.home-picture {
+  position: absolute;
+  top: 54px;
+  max-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.text-title {
+  position: absolute;
+  width: 100vw;
+  top: 451px;
+  color: $color-2;
+
+  h1 {
+    @include verticalCenter;
+    font-size: 40px;
+  }
+
+  h2 {
+    @include verticalCenter;
+    font-size: 40px;
+  }
+}
