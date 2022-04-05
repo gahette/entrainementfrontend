@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 function Header() {
     return (
-        <>
+        <div className='header'>
             <div className='logo'>
                 {/*<img src="./img/logo.png" alt="logo Charle Cantin"/>*/}
             </div>
@@ -24,7 +24,7 @@ function Header() {
                     </NavLink>
                 </ul>
             </div>
-        </>
+        </div>
     )
         ;
 }

@@ -17,16 +17,12 @@ $color-3: #D0D1D2;
   align-items: center;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: font-1, sans-serif;
   font-size: 16px;
+  padding-top: 13.2rem;
 }
+
 li {
   list-style-type: none;
 }

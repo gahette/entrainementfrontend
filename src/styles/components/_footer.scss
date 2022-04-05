@@ -1,9 +1,9 @@
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   background: $color-1;
   color: $color-3;
-  width: 100%;
+  width: 100vw;
   height: 116px;
   bottom: 0;
   display: flex;
@@ -18,16 +18,19 @@
       width: 24px;
       height: 23.85px;
     }
+
     .ig {
       width: 24px;
       height: 24px;
     }
   }
-  span{
+
+  span {
     @include verticalCenter;
     text-transform: capitalize;
     margin: 10px;
   }
+
   .legacy {
     @include verticalCenter;
     text-transform: capitalize;

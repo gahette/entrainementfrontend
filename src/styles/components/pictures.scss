@@ -1,0 +1,14 @@
+.galery{
+  @include verticalCenter;
+  background: $color-2;
+}
+
+.pictures {
+  width: 93%;
+  img{
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-top: 1.4rem ;
+  }
+
+}

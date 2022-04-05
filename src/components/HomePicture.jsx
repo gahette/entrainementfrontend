@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
+import {BACKEND_URL} from '../helpers';
 
-
-const HomePicture = () => {
+function HomePicture() {
     const [isloading, setIsloading] = useState(true)
     const [posts, setPosts] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:8055/items/post`)
+        axios.get(`${BACKEND_URL}/items/post`)
             .then(res => {
                 setPosts(res.data.data)
                 setIsloading(false)
@@ -28,7 +28,7 @@ const HomePicture = () => {
             </div>
             <div className='home-picture'>
                 {isloading ? 'Loading..' : posts.map((post, index) =>
-                    <img src={"http://localhost:8055/assets/" + post.image} key={index}
+                    <img src={`${BACKEND_URL}/assets/` + post.image} key={index}
                          alt="photo de la page d'accueil"/>)}
             </div>
         </>
