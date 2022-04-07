@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
 import {BACKEND_URL} from "../helpers";
+import axios from "axios";
 
 function Pictures() {
     const [isloading, setIsloading] = useState(true)
-    const [pictures, setPictures] = useState(null);
-    const galeries = ["Baptême", "Bébé", "Couple", "Famille", "Grossesse", "Mariage", "Portrait"]
+    const [pictures, setPictures] = useState(null)
+    const [cats, setCats] = useState([])
+    const [navbarOpen, setNavbarOpen] = useState(false)
+
+    const handleNavbarOpen = () => {
+        setNavbarOpen(!navbarOpen)
+    }
 
     useEffect(() => {
         axios.get(`${BACKEND_URL}/items/galery`)
@@ -14,17 +19,24 @@ function Pictures() {
                 setIsloading(false)
             })
     }, [])
+    useEffect(() => {
+        axios.get(`${BACKEND_URL}/items/categories`)
+            .then(res => {
+                setCats(res.data.data)
+                setIsloading(false)
+            })
+    }, [])
 
 
     return (
         <div className='galery'>
-            <div className='navbar show__nav'>
+            <div className={`navbar ${navbarOpen ? 'show-nav' : 'hide-nav'}`}>
+
                 <ul className="navbar__links">
-                    {galeries.map((categories) => (
-                        <li className='navbar__link'>{categories}</li>
-                    ))}
+                    {isloading ? 'Loading..' : cats.map((cat, index) =>
+                        <li className="navbar__link" key={index}><span>{cat.name}</span></li>)}
                 </ul>
-                <button className='burger'>
+                <button className='burger' onClick={handleNavbarOpen}>
                     <span className="bar">
 
                     </span>
