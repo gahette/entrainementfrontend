@@ -6,8 +6,8 @@ import Pictures from "../components/Pictures";
 function Gallery() {
     return (
         <div>
-            <Header/>
             <Pictures/>
+            <Header/>
             <Footer/>
         </div>
     );

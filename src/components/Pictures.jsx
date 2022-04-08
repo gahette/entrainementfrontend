@@ -3,8 +3,8 @@ import {BACKEND_URL} from "../helpers";
 import axios from "axios";
 
 function Pictures() {
+    const [pictures, setPictures] = useState([])
     const [isloading, setIsloading] = useState(true)
-    const [pictures, setPictures] = useState(null)
     const [cats, setCats] = useState([])
     const [navbarOpen, setNavbarOpen] = useState(false)
 
@@ -13,23 +13,47 @@ function Pictures() {
     }
 
     useEffect(() => {
-        axios.get(`${BACKEND_URL}/items/galery`)
+
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+
+
+        axios.get(`${BACKEND_URL}/items/galery`, {signal: signal})
             .then(res => {
+
                 setPictures(res.data.data)
                 setIsloading(false)
+
             })
+        return function cleanup() {
+            abortController.abort()
+        }
+
+
     }, [])
+
     useEffect(() => {
-        axios.get(`${BACKEND_URL}/items/categories`)
+
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+
+
+        axios.get(`${BACKEND_URL}/items/categories`, {signal: signal})
             .then(res => {
                 setCats(res.data.data)
                 setIsloading(false)
             })
+
+        return function cleanup() {
+            abortController.abort()
+        }
+
     }, [])
 
 
     return (
         <div className='galery'>
+
             <div className={`navbar ${navbarOpen ? 'show-nav' : 'hide-nav'}`}>
 
                 <ul className="navbar__links">
@@ -42,11 +66,12 @@ function Pictures() {
                     </span>
                 </button>
             </div>
-            <div className='pictures'>
+            <section className='images'>
                 {isloading ? 'Loading..' : pictures.map((picture, index) =>
                     <img src={`${BACKEND_URL}/assets/` + picture.picture} key={index}
                          alt="photo de la page d'accueil"/>)}
-            </div>
+            </section>
+
         </div>
 
     );
