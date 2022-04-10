@@ -13,7 +13,7 @@ function Pictures() {
     const newCats = [...new Map(cats.map((item) => [item["name"], item])).values()]
 
     const handleClick = (event) => {
-        setSelectedCategory(event.target.value)
+        setSelectedCategory(event.target.id)
 
     }
 
@@ -49,15 +49,12 @@ function Pictures() {
 
                 {isloading ? 'Loading..' :
                     newCats
-                        .filter((newCat)=>newCat.name[0].includes(selectedCategory))
+
                         .sort((a, b) => a.name.localeCompare(b.name))
                         .map((newCat, index) =>
 
-
-
-                    <li className="navbar__link" key={index}  >
-
-                    <span onClick={handleClick}>{newCat.name}</span>
+                    <li className="navbar__link" key={index} >
+                        <span id={newCat.name} onClick={handleClick}>{newCat.name}</span>
                     </li>)
                 }
 
@@ -70,9 +67,10 @@ function Pictures() {
         </div>
         <section className='images'>
             {isloading ? 'Loading..' : pictures
+                .filter((picture)=>picture.name.includes(selectedCategory))
                 .map((picture, index) =>
                     <img src={`${BACKEND_URL}/assets/` + picture.picture} key={index}
-                         alt="photo de la page d'accueil"/>)}
+                         alt="photos galerie"/>)}
         </section>
 
     </div>;
