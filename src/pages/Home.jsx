@@ -6,8 +6,8 @@ import HomePicture from "../components/HomePicture";
 export default function Home() {
   return (
     <div>
-        <Header/>
         <HomePicture/>
+        <Header/>
         <Footer/>
     </div>
   );

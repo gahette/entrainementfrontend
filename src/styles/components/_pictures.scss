@@ -2,6 +2,7 @@
   @include verticalCenter;
   background: $color-2;
   flex-direction: column;
+  margin-bottom: 7rem;
 
   .navbar__links {
     display: flex;
@@ -40,7 +41,9 @@
   .burger {
     display: block;
     position: relative;
+    //align-items: center;
     margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
     padding: 0;
     width: 45px;
     height: 45px;
@@ -86,25 +89,47 @@
   .show-nav .bar::after {
     transform: rotate(-45deg);
   }
+
   .show-nav .bar {
     width: 0;
     background: transparent;
   }
+
+  .cancel {
+    margin-bottom: 1.4rem;
+
+    .button-cancel {
+      border: 1px solid black;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      color: $color-1;
+      background: $color-3;
+      cursor: pointer;
+    }
+
+    .button-cancel:hover {
+      background: $color-1;
+      color: $color-3;
+    }
+  }
 }
 
 
-
-
 .images {
-  position: relative;
+
+  @include verticalCenter;
+  flex-direction: column;
   width: 93%;
+  bottom: 10.4rem;
 
   img {
+    position: relative;
+    align-items: center;
+    max-height: 35rem;
     border: 1px solid black;
     border-radius: 25px;
-    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
 
   }
-
 }
 

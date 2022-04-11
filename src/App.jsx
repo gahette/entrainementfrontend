@@ -1,6 +1,6 @@
 import {Routes,Route} from "react-router-dom";
 import Home from "./pages/Home";
-import Gallery from "./pages/Gallery";
+import Galery from "./pages/Galery";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import Legacy from "./pages/Legacy";
@@ -9,7 +9,7 @@ export default function App() {
     return (
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/galerie" element={<Gallery/>}/>
+            <Route path="/galerie" element={<Galery/>}/>
             <Route path="/tarifs&prestations" element={<Pricing/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="*" element={<Home/>}/>

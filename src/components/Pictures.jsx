@@ -44,30 +44,29 @@ function Pictures() {
     return <div className='galery'>
 
         <div className={`navbar ${navbarOpen ? 'show-nav' : 'hide-nav'}`}>
-
-            <ul className="navbar__links">
-
+            <ul className="navbar__links" onClick={handleNavbarOpen}>
                 {isloading ? 'Loading..' :
                     newCats
-
                         .sort((a, b) => a.name.localeCompare(b.name))
                         .map((newCat, index) =>
-
-                    <li className="navbar__link" key={index} >
-                        <span id={newCat.name} onClick={handleClick}>{newCat.name}</span>
-                    </li>)
-                }
-
+                            <li className="navbar__link" key={index}>
+                                <span id={newCat.name} onClick={handleClick}>{newCat.name}</span>
+                            </li>)}
             </ul>
             <button className='burger' onClick={handleNavbarOpen}>
                 <span className="bar">
-
                 </span>
             </button>
         </div>
+
+        <div className="cancel">
+            {selectedCategory &&
+                <h5 className='button-cancel' onClick={() => setSelectedCategory("")}>Annuler recherche</h5>}
+        </div>
+
         <section className='images'>
             {isloading ? 'Loading..' : pictures
-                .filter((picture)=>picture.name.includes(selectedCategory))
+                .filter((picture) => picture.name.includes(selectedCategory))
                 .map((picture, index) =>
                     <img src={`${BACKEND_URL}/assets/` + picture.picture} key={index}
                          alt="photos galerie"/>)}

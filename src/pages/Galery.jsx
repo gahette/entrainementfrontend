@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Pictures from "../components/Pictures";
 
-function Gallery() {
+function Galery() {
     return (
         <div>
             <Pictures/>
@@ -13,4 +13,4 @@ function Gallery() {
     );
 }
 
-export default Gallery;
+export default Galery;
