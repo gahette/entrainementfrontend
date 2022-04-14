@@ -33,6 +33,6 @@ function HomePicture() {
             </div>
         </>
     );
-};
+}
 
 export default HomePicture;

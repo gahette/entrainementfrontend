@@ -5,8 +5,12 @@ import App from "./App";
 import "./styles/index.scss"
 
 ReactDOM.render(
-    <BrowserRouter>
+    <div>
         <App/>
-    </BrowserRouter>,
-    document.getElementById("root")
-);
+    </div>,
+
+
+document.getElementById("root")
+
+)
+;
