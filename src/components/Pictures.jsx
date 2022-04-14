@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BACKEND_URL} from "../helpers";
-import axios from "axios";
+import sanityClient from "../client";
 
 function Pictures() {
     const [pictures, setPictures] = useState([])
@@ -10,8 +9,7 @@ function Pictures() {
     const [navbarOpen, setNavbarOpen] = useState(false)
 
     //remove duplicates in array cats
-    const newCats = [...new Map(cats.map((item) => [item["name"], item])).values()]
-
+    const newCats = [...new Map(cats.map((item) => [item["categories"], item])).values()]
     const handleClick = (event) => {
         setSelectedCategory(event.target.id)
 
@@ -23,22 +21,23 @@ function Pictures() {
 
     useEffect(() => {
 
-        const abortController = new AbortController();
-        const signal = abortController.signal;
-
-
-        axios.get(`${BACKEND_URL}/items/galery`, {signal: signal})
-            .then(res => {
-                setCats(res.data.data)
-                setPictures(res.data.data)
-                setIsloading(false)
-
-            })
-        return function cleanup() {
-            abortController.abort()
+        sanityClient.fetch(`*[_type =="galery"]{
+        categories,
+        mainImage{
+        asset->{
+        _id,      
+        url
+        },
+        alt
         }
-
-
+        
+        }`)
+            .then(res => {
+                setCats(res)
+                setPictures(res)
+                setIsloading(false)
+            })
+            .catch(console.error)
     }, [])
 
     return <div className='galery'>
@@ -47,10 +46,10 @@ function Pictures() {
             <ul className="navbar__links" onClick={handleNavbarOpen}>
                 {isloading ? 'Loading..' :
                     newCats
-                        .sort((a, b) => a.name.localeCompare(b.name))
+                        .sort((a, b) => a.categories.localeCompare(b.categories))
                         .map((newCat, index) =>
                             <li className="navbar__link" key={index}>
-                                <span id={newCat.name} onClick={handleClick}>{newCat.name}</span>
+                                <span id={newCat.categories} onClick={handleClick}>{newCat.categories}</span>
                             </li>)}
             </ul>
             <button className='burger' onClick={handleNavbarOpen}>
@@ -66,9 +65,9 @@ function Pictures() {
 
         <section className='images'>
             {isloading ? 'Loading..' : pictures
-                .filter((picture) => picture.name.includes(selectedCategory))
+                .filter((picture) => picture.categories.includes(selectedCategory))
                 .map((picture, index) =>
-                    <img src={`${BACKEND_URL}/assets/` + picture.picture} key={index}
+                    <img src={picture.mainImage.asset.url} key={index}
                          alt="photos galerie"/>)}
         </section>
 

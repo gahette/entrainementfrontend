@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BACKEND_URL} from "../helpers";
-import axios from "axios";
+
 
 function Card() {
     const [pricing, setPricing] = useState([]);

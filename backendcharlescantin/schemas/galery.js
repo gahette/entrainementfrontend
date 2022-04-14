@@ -1,27 +1,9 @@
 export default {
-    name: 'post',
-    title: 'Post',
+    name: 'galery',
+    title: 'Galery',
     type: 'document',
     fields: [
-        {
-            name: 'title',
-            title: 'Title',
-            type: 'string',
-        },
-        {
-            name: 'subtitle',
-            title: 'Subtitle',
-            type: 'string',
-        },
-        {
-            name: 'slug',
-            title: 'Slug',
-            type: 'slug',
-            options: {
-                source: 'title',
-                maxLength: 96,
-            },
-        },
+
         {
             name: 'author',
             title: 'Author',
@@ -34,6 +16,22 @@ export default {
             type: 'image',
             options: {
                 hotspot: true,
+            },
+        },
+        {
+            name: 'categories',
+            title: 'Categories',
+            type: 'string',
+            options: {
+                list: [
+                    {value: 'baptême', title: 'Baptême'},
+                    {value: 'bébé', title: 'Bébé'},
+                    {value: 'couple', title: 'Couple'},
+                    {value: 'famille', title: 'Famille'},
+                    {value: 'grossesse', title: 'Grossesse'},
+                    {value: 'mariage', title: 'Mariage'},
+                    {value: 'portrait', title: 'Portrait'},
+                    ]
             },
         },
         {

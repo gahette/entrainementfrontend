@@ -1,17 +1,29 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios'
-import {BACKEND_URL} from '../helpers';
+import sanityClient from "../client";
+
 
 function HomePicture() {
     const [isloading, setIsloading] = useState(true)
     const [posts, setPosts] = useState(null);
 
     useEffect(() => {
-        axios.get(`${BACKEND_URL}/items/post`)
+        sanityClient.fetch(`*[_type =="post"]{
+        title,
+        subtitle,
+        slug,
+        mainImage{
+        asset->{
+        _id,
+        url
+        },
+        alt
+        }
+        }`)
             .then(res => {
-                setPosts(res.data.data)
+                setPosts(res)
                 setIsloading(false)
             })
+            .catch(console.error)
     }, [])
 
     return (
@@ -28,7 +40,7 @@ function HomePicture() {
             </div>
             <div className='home-picture'>
                 {isloading ? 'Loading..' : posts.map((post, index) =>
-                    <img src={`${BACKEND_URL}/assets/` + post.image} key={index}
+                    <img src={post.mainImage.asset.url} key={index}
                          alt="photo de la page d'accueil"/>)}
             </div>
         </>
