@@ -1,0 +1,64 @@
+.prestation {
+  @include verticalCenter;
+  background: $color-2;
+}
+
+.cards {
+  width: 278.75px;
+  margin-top: 1.4rem;
+  margin-bottom: 10.4rem;
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 350px;
+    //max-height: 30rem;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-bottom: 1.4rem;
+
+    img {
+      border-radius: 25px 25px 0 0;
+      width: 278.75px;
+      height: 245px;
+      object-fit: cover;
+    }
+
+    section {
+      background: $color-3;
+      border-radius: 0 0 25px 25px;
+      min-height: 105px;
+      color: $color-1;
+
+      .title {
+        @include verticalCenter;
+        max-font-size: 1.5rem;
+        text-transform: uppercase;
+
+      }
+
+      article {
+        //position: relative;
+        display: grid;
+        grid-template-columns: 2fr 27%;
+        align-items: center;
+        text-transform: capitalize;
+
+        .description {
+          max-font-size: 1rem;
+          display: flex;
+          align-items: flex-end;
+          margin-left: 1rem;
+        }
+
+        .price {
+          //position: relative;
+          margin-right: 10px;
+          padding-left: 33px;
+        }
+      }
+    }
+  }
+}

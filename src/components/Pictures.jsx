@@ -40,38 +40,40 @@ function Pictures() {
             .catch(console.error)
     }, [])
 
-    return <div className='galery'>
+    return (
+        <div className='galery'>
 
-        <div className={`navbar ${navbarOpen ? 'show-nav' : 'hide-nav'}`}>
-            <ul className="navbar__links" onClick={handleNavbarOpen}>
-                {isloading ? 'Loading..' :
-                    newCats
-                        .sort((a, b) => a.categories.localeCompare(b.categories))
-                        .map((newCat, index) =>
-                            <li className="navbar__link" key={index}>
-                                <span id={newCat.categories} onClick={handleClick}>{newCat.categories}</span>
-                            </li>)}
-            </ul>
-            <button className='burger' onClick={handleNavbarOpen}>
+            <div className={`navbar ${navbarOpen ? 'show-nav' : 'hide-nav'}`}>
+                <ul className="navbar__links" onClick={handleNavbarOpen}>
+                    {isloading ? 'Loading..' :
+                        newCats
+                            .sort((a, b) => a.categories.localeCompare(b.categories))
+                            .map((newCat, index) =>
+                                <li className="navbar__link" key={index}>
+                                    <span id={newCat.categories.toLocaleString()} onClick={handleClick}>{newCat.categories}</span>
+                                </li>)}
+                </ul>
+                <button className='burger' onClick={handleNavbarOpen}>
                 <span className="bar">
                 </span>
-            </button>
+                </button>
+            </div>
+
+            <div className="cancel">
+                {selectedCategory &&
+                    <h5 className='button-cancel' onClick={() => setSelectedCategory("")}>Annuler recherche</h5>}
+            </div>
+
+            <section className='images'>
+                {isloading ? 'Loading..' : pictures
+                    .filter((picture) => picture.categories.includes(selectedCategory))
+                    .map((picture, index) =>
+                        <img src={picture.mainImage.asset.url} key={index}
+                             alt="photos galerie"/>)}
+            </section>
+
         </div>
-
-        <div className="cancel">
-            {selectedCategory &&
-                <h5 className='button-cancel' onClick={() => setSelectedCategory("")}>Annuler recherche</h5>}
-        </div>
-
-        <section className='images'>
-            {isloading ? 'Loading..' : pictures
-                .filter((picture) => picture.categories.includes(selectedCategory))
-                .map((picture, index) =>
-                    <img src={picture.mainImage.asset.url} key={index}
-                         alt="photos galerie"/>)}
-        </section>
-
-    </div>;
+    )
 }
 
 export default Pictures;

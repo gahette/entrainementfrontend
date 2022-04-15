@@ -1,27 +1,54 @@
 import React, {useEffect, useState} from 'react';
+import sanityClient from "../client";
 
 
 function Card() {
-    const [pricing, setPricing] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [pricings, setPricings] = useState([]);
+    const [isloading, setIsloading] = useState(true);
 
-    // useEffect(() => {
-    //
-        // axios.get(`${BACKEND_URL}/items/Pricing`)
-        //     .then(res => {
-        //         setPricing(res.data.data)
-        //         setIsLoading(false)
-        //     })
-    // }, []);
+    useEffect(() => {
 
+        sanityClient.fetch(`*[_type== "pricing"]{
+        title,
+        mainImage{
+        asset->{
+        _id,      
+        url
+        },
+        alt
+        
+        },
+        price,
+        description
+        }`)
+            .then(res => {
+                setPricings(res)
+                setIsloading(false)
+            })
+            .catch(console.error)
+    }, []);
 
 
     return (
-        <div className='card'>
+        <div className='prestation'>
+            <ul className='cards'>
+                {isloading ? 'Loading..' :
+                    pricings
+                        .map((pricing, index) =>
+                            <li className="card" key={index}>
+                                <img src={pricing.mainImage.asset.url} alt="image d'illustration"/>
+                                <section>
+                                    <span className='title'>{pricing.title}</span>
+                                    <article>
+                                        <p className='description'>{pricing.description}</p>
+                                        <span className='price'>{pricing.price}€</span>
+                                    </article>
+                                </section>
+                            </li>)}
+            </ul>
 
-             cool
         </div>
-     )
+    )
 }
 
 
