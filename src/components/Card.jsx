@@ -9,6 +9,7 @@ function Card() {
     useEffect(() => {
 
         sanityClient.fetch(`*[_type== "pricing"]{
+        edition,
         title,
         mainImage{
         asset->{
@@ -34,6 +35,7 @@ function Card() {
             <ul className='cards'>
                 {isloading ? 'Loading..' :
                     pricings
+                        .sort((a, b) => a.edition-b.edition)
                         .map((pricing, index) =>
                             <li className="card" key={index}>
                                 <img src={pricing.mainImage.asset.url} alt="image d'illustration"/>
