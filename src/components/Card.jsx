@@ -8,7 +8,8 @@ function Card() {
 
     useEffect(() => {
 
-        sanityClient.fetch(`*[_type== "pricing"]{
+        sanityClient
+            .fetch(`*[_type== "pricing"]{
         edition,
         title,
         mainImage{

@@ -1,10 +1,15 @@
 import {useState, useEffect} from 'react';
+import sanityClient from "../client";
+
 
 function Form() {
     const initialValues = {nom: "", societe: "", phone: "", email: "", message: ""};
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [locations, setLocations] = useState('');
+    const [isloading, setIsloading] = useState(true);
+
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -18,11 +23,20 @@ function Form() {
     };
 
     useEffect(() => {
-        console.log(formErrors);
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-            console.log(formValues);
-        }
-    }, [formErrors]);
+        sanityClient
+            .fetch(`*[_type=="address"]{
+        adressePostale,
+        email,
+        telephone
+        }`)
+            .then(res => {
+                setLocations(res)
+                setIsloading(false)
+            })
+            .catch(console.error)
+    }, []);
+
+
     const validate = (values) => {
         const errors = {};
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -38,81 +52,104 @@ function Form() {
             errors.message = "Le message est requis";
         }
         return errors;
+
+
     };
+
 
     return (
         <div className="container">
             {Object.keys(formErrors).length === 0 && isSubmit ? (
-                <div className="ui message success">Message envoyé</div>
-            ) : (
-                <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-            )}
+                <div className="send-success">Message envoyé</div>) : ''}
 
             <form onSubmit={handleSubmit}>
-                <h1>Login Form</h1>
+                <h2>Contactez-moi</h2>
 
-                <div className="ui form">
+                <div className="form">
                     <div className="field">
-                        <label>Nom</label>
+                        <label htmlFor='name'>Nom*</label>
                         <input
                             type="text"
+                            id='name'
                             name="nom"
-                            placeholder="nom"
+                            // placeholder="nom"
                             value={formValues.nom}
                             onChange={handleChange}
                         />
                     </div>
+
                     <p>{formErrors.nom}</p>
+
+
                     <div className="field">
-                        <label>Société</label>
+                        <label htmlFor='societe'>Société</label>
                         <input
                             type="text"
+                            id='societe'
                             name="societe"
-                            placeholder="Société"
+                            // placeholder="Société"
                             value={formValues.societe}
                             onChange={handleChange}
                         />
                     </div>
+
                     <div className="field">
-                        <label
-                            htmlFor='phone'>
-                            Téléphone
-                        </label>
+                        <label htmlFor='phone'>Téléphone</label>
                         <input
                             type="tel"
                             id='phone'
-                            pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                            pattern="[0-9]{10}"
                             name="phone"
-                            placeholder="12 34 56 78 90"
+                            // placeholder="1234567890"
                             value={formValues.phone}
                             onChange={handleChange}
                         />
-
                     </div>
+
                     <div className="field">
-                        <label>Email</label>
+                        <label htmlFor='email'>Email*</label>
                         <input
                             type="text"
+                            id='email'
                             name="email"
-                            placeholder="Email"
+                            // placeholder="Email"
                             value={formValues.email}
                             onChange={handleChange}
                         />
                     </div>
+
                     <p>{formErrors.email}</p>
+
                     <div className="field">
-                        <label>Message</label>
+                        <label htmlFor='message'>Message*</label>
                         <textarea
+                            id='message'
                             name="message"
-                            placeholder="Votre message"
+                            rows='3'
+                            // placeholder="Votre message"
                             value={formValues.message}
                             onChange={handleChange}
                         />
                     </div>
                     <p>{formErrors.message}</p>
-                    <button className="fluid ui button blue">Envoyer</button>
+                    <button className="send">Envoyer</button>
                 </div>
             </form>
+            <div className='where'>
+                <ul className='local'>
+                    {isloading ? 'Loading..' :
+                        locations
+                            .map((location,index) =>
+                        <li className='contact'>
+                            <div className='postale' key={index}>{location.adressePostale}</div>
+                            <div className='couriel' key={index+1}>{location.email}</div>
+                            <div className='telephone' key={index+2}>{location.telephone}</div>
+                        </li>
+                            //    todo unique key
+
+                            )}
+                </ul>
+            </div>
         </div>
     )
 }
