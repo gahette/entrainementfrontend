@@ -139,14 +139,17 @@ function Form() {
                 <ul className='local'>
                     {isloading ? 'Loading..' :
                         locations
-                            .map((location,index) =>
-                        <li className='contact'>
-                            <div className='postale' key={index}>{location.adressePostale}</div>
-                            <div className='couriel' key={index+1}>{location.email}</div>
-                            <div className='telephone' key={index+2}>{location.telephone}</div>
-                        </li>
-                            //    todo unique key
+                            .map((location, index) =>
+                                <li className='contact' key={index}>
+                                    <section className='phoneadd'>
+                                        <div className='postale' id='postale'
+                                             >{location.adressePostale}</div>
+                                        <div className='telephone' id='telephone'
+                                             >{location.telephone}</div>
+                                    </section>
 
+                                    <div className='couriel' id='couriel'>{location.email}</div>
+                                </li>
                             )}
                 </ul>
             </div>

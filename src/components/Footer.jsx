@@ -11,11 +11,13 @@ function Footer() {
                 <FontAwesomeIcon icon={faFacebook} className="fb"/>
                 <FontAwesomeIcon icon={faInstagram} className="ig"/>
             </div>
+            <div className="foot">
             <span>@2022 charles cantin.</span>
 
             <NavLink to="/mentionslegales" exact="true" element={<Legacy/>} className='legacy'>
                 mentions légales
             </NavLink>
+            </div>
         </div>
     )
         ;

@@ -1,4 +1,6 @@
 @import "src/styles/libs/reset";
+@import "src/styles/breakpoints";
+
 
 @font-face {
   font-family: "font-1";
@@ -21,7 +23,13 @@ body {
   font-family: font-1, sans-serif;
   font-size: 16px;
   padding-top: 13.2rem;
-//  todo scrollbar
+
+  @include md {
+    font-size: 20px;
+  }
+  @include lg {
+    font-size: 24px;
+  }
 }
 
 li {

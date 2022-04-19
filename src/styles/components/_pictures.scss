@@ -1,3 +1,6 @@
+@import 'src/styles/breakpoints';
+@import "src/styles/settings";
+
 .galery {
   @include verticalCenter;
   background: $color-2;

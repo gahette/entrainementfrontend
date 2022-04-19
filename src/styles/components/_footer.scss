@@ -1,3 +1,6 @@
+@import 'src/styles/breakpoints';
+@import "src/styles/settings";
+
 .footer {
   position: fixed;
   left: 0;
@@ -36,5 +39,16 @@
     text-transform: capitalize;
     color: $color-3;
     margin-bottom: 15px;
+    @include md {
+      margin-bottom: 0;
+    }
+  }
+  @include md {
+    .foot {
+      @include verticalCenter;
+      display: flex;
+      margin: 10px 10px 19px 10px;
+
+    }
   }
 }

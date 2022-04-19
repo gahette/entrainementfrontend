@@ -1,11 +1,13 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
+
 function Header() {
     return (
         <div className='header'>
             <div className='logo'>
-                {/*<img src="./img/logo.png" alt="logo Charle Cantin"/>*/}
+                <img src="./img/logo.png" alt="logo Charles Cantin"/>
+            {/*todo erreur img ???*/}
             </div>
             <div className="navigation">
                 <ul>
@@ -17,7 +19,7 @@ function Header() {
                     </NavLink>
                     <NavLink to="/tarifs&prestations" exact='true'
                              className={(nav) => (nav.isActive ? "nav-active" : "")}>
-                        <li>prestations</li>
+                        <li id='prestation'>prestations</li>
                     </NavLink>
                     <NavLink to="/contact" exact='true' className={(nav) => (nav.isActive ? "nav-active" : "")}>
                         <li>contact</li>

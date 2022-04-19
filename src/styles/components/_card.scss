@@ -1,3 +1,7 @@
+@import 'src/styles/breakpoints';
+@import "src/styles/settings";
+
+
 .prestation {
   @include verticalCenter;
   background: $color-2;

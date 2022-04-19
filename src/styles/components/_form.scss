@@ -1,7 +1,10 @@
+@import 'src/styles/breakpoints';
+@import "src/styles/settings";
+
 .container {
   //background: green;
   background: $color-2;
-  height: 90vh;
+  height: 73vh;
 
   h2 {
     @include verticalCenter;
@@ -13,7 +16,7 @@
 
   .field {
     vertical-align: top;
-    margin: 0 10px 10px 10px;
+    margin: 0 30px 10px 10px;
     text-transform: uppercase;
     color: $color-1;
     border-bottom: 1px solid $color-1;
@@ -40,9 +43,9 @@
 .send {
   background: $color-1;
   color: $color-2;
-  margin: 2.2rem;
+  margin-top: 1.9rem;
   margin-right: 1.6rem;
-  margin-left: 12.25rem;
+  margin-left: 250px;
   padding: 4px 20px 4px 20px;
   font-size: 1.5rem;
   text-transform: capitalize;
@@ -50,4 +53,21 @@
   border-radius: 25px;
 }
 
-//todo where
+.phoneadd {
+
+  margin: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  vertical-align: center;
+  gap: 81px;
+}
+
+.couriel {
+  @include verticalCenter;
+  margin-top: 2rem;
+}
+
+
+
+
+
