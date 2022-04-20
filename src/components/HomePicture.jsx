@@ -17,7 +17,8 @@ function HomePicture() {
         url
         },
         alt
-        }
+        },
+        home
         }`)
             .then(res => {
                 setPosts(res)
@@ -42,6 +43,10 @@ function HomePicture() {
                 {isloading ? 'Loading..' : posts.map((post, index) =>
                     <img src={post.mainImage.asset.url} key={index}
                          alt="photo de la page d'accueil"/>)}
+            </div>
+            <div className='home'>
+                {isloading ? 'Loading..' : posts.map((post, index) =>
+                    <h3 key={index}>{post.home}</h3>)}
             </div>
         </>
     );

@@ -3,10 +3,24 @@
 
 .home-picture {
   position: fixed;
-
   @include verticalCenter;
+  width: 100%;
+  height: 100vh;
   object-fit: cover;
+  object-position: center;
   z-index: -1;
+  @include sm {
+    margin-top: 2rem;
+  }
+  @include md {
+    margin-top: 5rem;
+  }
+  @include lg {
+    margin-top: 8rem;
+  }
+  @include xl {
+    margin-top: 11rem;
+  }
 }
 
 .text-title {
@@ -14,18 +28,64 @@
   flex-direction: column;
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 13.2rem);
+  height: 100vh;
   color: $color-2;
 
   h1 {
     @include verticalCenter;
     font-size: 40px;
     text-transform: uppercase;
+    @include sm{
+      font-size: 50px;
+    }
+    @include md{
+      font-size: 65px;
+    }
+    @include lg{
+      font-size: 80px;
+    }
+    @include xl{
+      font-size: 100px;
+    }
   }
 
   h2 {
     @include verticalCenter;
     font-size: 40px;
     text-transform: uppercase;
+    @include md{
+      font-size: 45px;
+    }
+    @include lg{
+      font-size: 55px;
+    }
+    @include xl{
+      font-size: 64px;
+    }
   }
 }
+.home {
+  position: absolute;
+  @include verticalCenter;
+  width: 100vw;
+  color: $color-2;
+  bottom: 187px;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 719.98px) {
+    display: none;
+  }
+  @include md {
+    font-size: 20px;
+  }
+  @include lg {
+    font-size: 28px;
+  }
+  @include xl {
+    font-size: 35px;
+  }
+  @include breakpoint(1400px){
+    font-size: 40px;
+  }
+}
+

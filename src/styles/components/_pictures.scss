@@ -5,6 +5,7 @@
   @include verticalCenter;
   background: $color-2;
   flex-direction: column;
+  margin-top: 13.2rem;
   margin-bottom: 7rem;
 
   .navbar__links {
@@ -13,9 +14,10 @@
     justify-content: center;
     align-items: center;
     width: 0;
-    height: calc(100vh - 13.2rem);
+    //height: calc(100vh - 13.2rem);
+    height: 100vh;
     position: absolute;
-    top: 13.2rem;
+    //top: 13.2rem;
     right: 0;
     overflow: hidden;
     background: $color-3;

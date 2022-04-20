@@ -42,9 +42,9 @@ export default {
             type: 'datetime',
         },
         {
-            name: 'body',
-            title: 'Body',
-            type: 'blockContent',
+            name: 'home',
+            title: 'Home',
+            type: 'text',
         },
     ],
 
