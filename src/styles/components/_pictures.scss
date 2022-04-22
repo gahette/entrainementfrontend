@@ -7,6 +7,10 @@
   flex-direction: column;
   margin-top: 13.2rem;
   margin-bottom: 7rem;
+  @include md {
+    margin-top: 9.4rem;
+  }
+
 
   .navbar__links {
     display: flex;
@@ -14,10 +18,8 @@
     justify-content: center;
     align-items: center;
     width: 0;
-    //height: calc(100vh - 13.2rem);
     height: 100vh;
     position: absolute;
-    //top: 13.2rem;
     right: 0;
     overflow: hidden;
     background: $color-3;
@@ -41,6 +43,8 @@
 
   .show-nav .navbar__links {
     width: 100%;
+
+
   }
 
   .burger {
@@ -55,6 +59,9 @@
     background: transparent;
     z-index: 20;
     cursor: pointer;
+    @include md {
+      display: none;
+    }
 
     .bar {
       display: block;
@@ -98,6 +105,36 @@
     width: 0;
     background: transparent;
   }
+
+  .radio-galery {
+
+    display: flex;
+    margin: 40px;
+    padding-left: 18px;
+    color: $color-1;
+    text-transform: capitalize;
+    border: 1px solid $color-1;
+    border-radius: 8px;
+    background: $color-3;
+
+    li {
+      padding-right: 40px;
+
+      label {
+        padding-left: 18px;
+      }
+    }
+
+    @media screen and (max-width: 719.98px) {
+      display: none;
+    }
+    @include md {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+  }
+
 
   .cancel {
     margin-bottom: 1.4rem;
