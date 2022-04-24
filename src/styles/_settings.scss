@@ -19,10 +19,11 @@ $color-3: #D0D1D2;
   align-items: center;
 }
 
+
+
 body {
   font-family: font-1, sans-serif;
   font-size: 16px;
-  //padding-top: 13.2rem;
 
   @include md {
     font-size: 20px;

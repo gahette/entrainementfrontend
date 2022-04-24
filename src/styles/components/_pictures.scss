@@ -8,7 +8,10 @@
   margin-top: 13.2rem;
   margin-bottom: 7rem;
   @include md {
-    margin-top: 9.4rem;
+    //margin-top: 9.4rem;
+    margin-top: 5rem;
+    margin-bottom: 0;
+    background-image: url("../../../public/img/wall.jpg");
   }
 
   .navbar__links {
@@ -162,6 +165,7 @@
   width: 93%;
   bottom: 10.4rem;
 
+
   img {
     position: relative;
     align-items: center;
@@ -169,7 +173,50 @@
     border: 1px solid black;
     border-radius: 25px;
     margin-bottom: 1.4rem;
+  }
 
+  @include md {
+    display: none;
   }
 }
 
+.carousel-root {
+  margin-bottom: 85px;
+}
+.carousel-slider {
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: transparent;
+
+  img {
+    border-radius: 25px;
+    margin: auto !important;
+    max-width: 93% !important;
+    width: auto !important;
+    max-height: calc(65vh - 85px) !important;
+  }
+
+  @media screen and (max-width: 719.98px) {
+    display: none;
+  }
+}
+
+.thumbs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0;
+  padding: 10px;
+  @media screen and (max-width: 719.98px) {
+    display: none;
+  }
+
+}
+
+.thumb {
+
+  margin: 0 5px;
+  border-radius: 25px;
+  cursor: pointer;
+}

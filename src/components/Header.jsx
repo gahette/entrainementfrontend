@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 
 
 function Header() {
+
+
     return (
         <div className='header'>
             <div className='logo'>
                 <img src="./img/logo.png" alt="logo Charles Cantin"/>
-            {/*todo erreur img ???*/}
+                {/*todo erreur img ???*/}
             </div>
             <div className="navigation">
                 <ul>
