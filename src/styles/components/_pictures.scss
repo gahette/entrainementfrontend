@@ -8,10 +8,9 @@
   margin-top: 13.2rem;
   margin-bottom: 7rem;
   @include md {
-    //margin-top: 9.4rem;
     margin-top: 5rem;
     margin-bottom: 0;
-    background-image: url("../../../public/img/wall.jpg");
+    background-image: url("../../../public/imgs/wall.jpg");
   }
 
   .navbar__links {

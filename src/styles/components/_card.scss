@@ -9,8 +9,19 @@
 
 .cards {
   width: 278.75px;
-  margin-top: 1.4rem;
-  margin-bottom: 10.4rem;
+  margin-top: 13.2rem;
+  margin-bottom: 7rem;
+  @include md {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 2rem;
+  }
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
   .card {
     position: relative;
@@ -18,51 +29,79 @@
     flex-direction: column;
     align-items: center;
     min-height: 350px;
-    //max-height: 30rem;
     border: 1px solid black;
     border-radius: 25px;
+    margin-top: 1.4rem;
     margin-bottom: 1.4rem;
+    cursor: pointer;
+
+
+    @include md {
+      width: 318px;
+      height: 500px;
+      font-size: 1rem;
+    }
+    @include lg {
+      width: 278.75px;
+      height: 500px;
+    }
 
     img {
       border-radius: 25px 25px 0 0;
       width: 278.75px;
       height: 245px;
       object-fit: cover;
+      @include md {
+        width: 318px;
+      }
     }
+
 
     section {
       background: $color-3;
       border-radius: 0 0 25px 25px;
       min-height: 105px;
       color: $color-1;
+      @include md {
+        height: 255px;
+      }
 
       .title {
         @include verticalCenter;
         max-font-size: 1.5rem;
         text-transform: uppercase;
-
       }
 
       article {
-        //position: relative;
+        height: calc(255px - 1.6rem);
         display: grid;
         grid-template-columns: 2fr 27%;
         align-items: center;
         text-transform: capitalize;
+        @include md {
+          @include verticalCenter;
+        }
 
         .description {
-          max-font-size: 1rem;
           display: flex;
           align-items: flex-end;
           margin-left: 1rem;
         }
 
         .price {
-          //position: relative;
           margin-right: 10px;
           padding-left: 33px;
         }
+
       }
     }
   }
+}
+
+.card:hover {
+  transform: translateY(20px) translateX(15px) scale(1.1);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  box-shadow: 10px 5px $color-1;
+
 }
