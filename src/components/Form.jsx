@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import sanityClient from "../client";
 
 
@@ -27,7 +27,14 @@ function Form() {
             .fetch(`*[_type=="address"]{
         adressePostale,
         email,
-        telephone
+        telephone,
+        mainImage{
+        asset->{
+        _id,      
+        url
+        },
+        alt
+        }
         }`)
             .then(res => {
                 setLocations(res)
@@ -59,100 +66,112 @@ function Form() {
 
     return (
         <div className="container">
+
             {Object.keys(formErrors).length === 0 && isSubmit ? (
                 <div className="send-success">Message envoyé</div>) : ''}
-
-            <form onSubmit={handleSubmit}>
-                <h2>Contactez-moi</h2>
-
-                <div className="form">
-                    <div className="field">
-                        <label htmlFor='name'>Nom*</label>
-                        <input
-                            type="text"
-                            id='name'
-                            name="nom"
-                            // placeholder="nom"
-                            value={formValues.nom}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <p>{formErrors.nom}</p>
-
-
-                    <div className="field">
-                        <label htmlFor='societe'>Société</label>
-                        <input
-                            type="text"
-                            id='societe'
-                            name="societe"
-                            // placeholder="Société"
-                            value={formValues.societe}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className="field">
-                        <label htmlFor='phone'>Téléphone</label>
-                        <input
-                            type="tel"
-                            id='phone'
-                            pattern="[0-9]{10}"
-                            name="phone"
-                            // placeholder="1234567890"
-                            value={formValues.phone}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className="field">
-                        <label htmlFor='email'>Email*</label>
-                        <input
-                            type="text"
-                            id='email'
-                            name="email"
-                            // placeholder="Email"
-                            value={formValues.email}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <p>{formErrors.email}</p>
-
-                    <div className="field">
-                        <label htmlFor='message'>Message*</label>
-                        <textarea
-                            id='message'
-                            name="message"
-                            rows='3'
-                            // placeholder="Votre message"
-                            value={formValues.message}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <p>{formErrors.message}</p>
-                    <button className="send">Envoyer</button>
+            <article>
+                <div className='photo'>
+                    {isloading ? 'Loading..' : locations.map((location, index) =>
+                        <img src={location.mainImage.asset.url} key={index}
+                             alt="photo d'un photographe"/>)}
                 </div>
-            </form>
-            <div className='where'>
-                <ul className='local'>
-                    {isloading ? 'Loading..' :
-                        locations
-                            .map((location, index) =>
-                                <li className='contact' key={index}>
-                                    <section className='phoneadd'>
-                                        <div className='postale' id='postale'
-                                             >{location.adressePostale}</div>
-                                        <div className='telephone' id='telephone'
-                                             >{location.telephone}</div>
-                                    </section>
 
-                                    <div className='couriel' id='couriel'>{location.email}</div>
-                                </li>
-                            )}
-                </ul>
-            </div>
+                <div className="wrapper">
+                    <h2>Contactez-moi</h2>
+                    <aside>
+                        <form onSubmit={handleSubmit}>
+
+                            <div className="form">
+                                <div className="field">
+                                    <label htmlFor='name'>Nom*</label>
+                                    <input
+                                        type="text"
+                                        id='name'
+                                        name="nom"
+                                        value={formValues.nom}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <p>{formErrors.nom}</p>
+
+
+                                <div className="field">
+                                    <label htmlFor='societe'>Société</label>
+                                    <input
+                                        type="text"
+                                        id='societe'
+                                        name="societe"
+                                        value={formValues.societe}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <div className="field">
+                                    <label htmlFor='phone'>Téléphone</label>
+                                    <input
+                                        type="tel"
+                                        id='phone'
+                                        pattern="[0-9]{10}"
+                                        name="phone"
+                                        value={formValues.phone}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <div className="field">
+                                    <label htmlFor='email'>Email*</label>
+                                    <input
+                                        type="text"
+                                        id='email'
+                                        name="email"
+                                        value={formValues.email}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <p>{formErrors.email}</p>
+
+                                <div className="field">
+                                    <label htmlFor='message'>Message*</label>
+                                    <textarea
+                                        id='message'
+                                        name="message"
+                                        rows='3'
+                                        value={formValues.message}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+
+                            </div>
+                        </form>
+                        <p>{formErrors.message}</p>
+                        <button className='send'>Envoyer</button>
+
+                    </aside>
+                </div>
+            </article>
+            {/*<div className='where'>*/}
+            <ul className='local'>
+                {isloading ? 'Loading..' :
+                    locations
+                        .map((location, index) =>
+                            <li className='contact' key={index}>
+                                <section className='local-sub'>
+                                    <div className='sub-section'>
+                                        <div className='postale' id='postale'
+                                        >{location.adressePostale}</div>
+                                        <div className='telephone' id='telephone'
+                                        >{location.telephone}</div>
+                                    </div>
+                                    <div className='courriel' id='courriel'>{location.email}</div>
+                                </section>
+
+                            </li>
+                        )}
+            </ul>
+            {/*</div>*/}
         </div>
     )
 }
