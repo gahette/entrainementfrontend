@@ -27,7 +27,7 @@ function Pictures() {
 
         sanityClient.fetch(`*[_type =="galery"]{
         categories,
-        mainImage{
+        image{
         asset->{
         _id,      
         url
@@ -101,8 +101,8 @@ function Pictures() {
                     .filter((picture) => picture.categories.includes(selectedCategory))
                     .filter((picture) => picture.categories.includes(selectedRadio))
                     .map((picture, index) =>
-                        <img src={picture.mainImage.asset.url} key={index}
-                             alt="photos galerie"/>)}
+                        <img src={picture.image.asset.url} key={index}
+                             alt={picture.image.alt}/>)}
             </section>
 
             <Carousel
@@ -118,8 +118,8 @@ function Pictures() {
                         .filter((slide) => slide.categories.includes(selectedCategory))
                         .filter((slide) => slide.categories.includes(selectedRadio))
                         .map((slide, index) =>
-                            <img src={slide.mainImage.asset.url} key={index}
-                                 alt="photos galerie"/>)}
+                            <img src={slide.image.asset.url} key={index}
+                                 alt={slide.image.alt}/>)}
             </Carousel>
 
 

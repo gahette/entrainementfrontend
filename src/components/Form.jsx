@@ -73,7 +73,7 @@ function Form() {
                 <div className='photo'>
                     {isloading ? 'Loading..' : locations.map((location, index) =>
                         <img src={location.image.asset.url} key={index}
-                             alt="photo d'un photographe"/>)}
+                             alt={location.image.alt}/>)}
                 </div>
 
                 <div className="wrapper">

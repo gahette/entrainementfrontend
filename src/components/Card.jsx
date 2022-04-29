@@ -44,7 +44,7 @@ function Card() {
                                 navigate("/contact")
                             }}
                             >
-                                <img src={pricing.image.asset.url} alt="image d'illustration"/>
+                                <img src={pricing.image.asset.url} alt={pricing.image.alt}/>
                                 <section>
                                     <span className='title'>{pricing.title}</span>
                                     <article>
