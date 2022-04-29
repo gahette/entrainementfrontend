@@ -3,24 +3,24 @@ import sanityClient from "../client";
 
 
 function Form() {
-    const initialValues = {nom: "", societe: "", phone: "", email: "", message: ""};
-    const [formValues, setFormValues] = useState(initialValues);
-    const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
+    // const initialValues = {nom: "", societe: "", phone: "", email: "", message: ""};
+    // const [formValues, setFormValues] = useState(initialValues);
+    // const [formErrors, setFormErrors] = useState({});
+    // const [isSubmit, setIsSubmit] = useState(false);
     const [locations, setLocations] = useState('');
     const [isloading, setIsloading] = useState(true);
 
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormValues({...formValues, [name]: value});
-    };
+    // const handleChange = (e) => {
+    //     const {name, value} = e.target;
+    //     setFormValues({...formValues, [name]: value});
+    // };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormErrors(validate(formValues));
-        setIsSubmit(true);
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+        // setFormErrors(validate(formValues));
+        // setIsSubmit(true);
+    // };
 
     useEffect(() => {
         sanityClient
@@ -44,28 +44,28 @@ function Form() {
     }, []);
 
 
-    const validate = (values) => {
-        const errors = {};
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (!values.nom) {
-            errors.nom = "Un nom est requis!";
-        }
-        if (!values.email) {
-            errors.email = " un email est requis!";
-        } else if (!regex.test(values.email)) {
-            errors.email = "Ce n'est pas un format valide!";
-        }
-        if (!values.message) {
-            errors.message = "Un message est requis!";
-        }
-        return errors;
-    };
+    // const validate = (values) => {
+    //     const errors = {};
+    //     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    //     if (!values.nom) {
+    //         errors.nom = "Un nom est requis!";
+    //     }
+    //     if (!values.email) {
+    //         errors.email = " un email est requis!";
+    //     } else if (!regex.test(values.email)) {
+    //         errors.email = "Ce n'est pas un format valide!";
+    //     }
+    //     if (!values.message) {
+    //         errors.message = "Un message est requis!";
+    //     }
+    //     return errors;
+    // };
     return (
         <div className="container">
             <article>
-                {Object.keys(formErrors).length === 0 && isSubmit ? (
-                    <div className="send-success">Message envoyé</div>) : (''
-                )}
+                {/*{Object.keys(formErrors).length === 0 && isSubmit ? (*/}
+                {/*    <div className="send-success">Message envoyé</div>) : (''*/}
+                {/*)}*/}
 
 
                 <div className='photo'>
@@ -82,7 +82,8 @@ function Form() {
                             method="post"
                             data-netlify="true"
                             data-netlify-honeypot="bot-field"
-                            onSubmit={handleSubmit}
+                            onSubmit="submit"
+                              //  {handleSubmit}
                         >
                             <input type="hidden" name="form-name" value="contact"/>
 
@@ -93,12 +94,12 @@ function Form() {
                                         type="text"
                                         id='name'
                                         name="nom"
-                                        value={formValues.nom}
-                                        onChange={handleChange}
+                                        // value={formValues.nom}
+                                        // onChange={handleChange}
                                     />
                                 </div>
 
-                                <p>{formErrors.nom}</p>
+                             {/*<p>{formErrors.nom}</p>*/}
 
 
                                 <div className="field">
@@ -107,8 +108,8 @@ function Form() {
                                         type="text"
                                         id='societe'
                                         name="societe"
-                                        value={formValues.societe}
-                                        onChange={handleChange}
+                                        // value={formValues.societe}
+                                        // onChange={handleChange}
                                     />
                                 </div>
 
@@ -119,8 +120,8 @@ function Form() {
                                         id='phone'
                                         pattern="[0-9]{10}"
                                         name="phone"
-                                        value={formValues.phone}
-                                        onChange={handleChange}
+                                        // value={formValues.phone}
+                                        // onChange={handleChange}
                                     />
                                 </div>
 
@@ -130,12 +131,12 @@ function Form() {
                                         type="text"
                                         id='email'
                                         name="email"
-                                        value={formValues.email}
-                                        onChange={handleChange}
+                                        // value={formValues.email}
+                                        // onChange={handleChange}
                                     />
                                 </div>
 
-                                <p>{formErrors.email}</p>
+                                {/*<p>{formErrors.email}</p>*/}
 
                                 <div className="field">
                                     <label htmlFor='message'>Message*</label>
@@ -143,13 +144,13 @@ function Form() {
                                         id='message'
                                         name="message"
                                         rows='3'
-                                        value={formValues.message}
-                                        onChange={handleChange}
+                                        // value={formValues.message}
+                                        // onChange={handleChange}
                                     />
                                 </div>
 
-                                <p>{formErrors.message}</p>
-                                <button className='send'>Envoyer</button>
+                                {/*<p>{formErrors.message}</p>*/}
+                                <button type="submit" className='send'>Envoyer</button>
                             </div>
                         </form>
 
