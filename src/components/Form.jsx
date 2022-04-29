@@ -80,7 +80,7 @@ function Form() {
                         <form
                             name="contact"
                             method="POST"
-                            data-netlify="true"
+                            netlify
                             onSubmit={handleSubmit}
                         >
                             <input type="hidden" name="form-name" value="contact"/>
