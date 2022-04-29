@@ -77,7 +77,13 @@ function Form() {
                 <div className="wrapper">
                     <h2>Contactez-moi</h2>
                     <aside>
-                        <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+                        <form
+                            name="contact"
+                            method="POST"
+                            data-netlify="true"
+                            onSubmit={handleSubmit}
+                        >
+                            <input type"hidden" name="form-name" value="contact"/>
 
                             <div className="form">
                                 <div className="field">
