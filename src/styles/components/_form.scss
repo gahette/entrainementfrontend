@@ -239,4 +239,15 @@ margin-top: 3rem;
       align-self: center;
     }
   }
+  .send-success {
+    position: absolute;
+    margin-bottom: 450px;
+    color: blue;
+    //@include verticalCenter;
+    font-size: 24px;
+    animation: clignote 2s linear infinite;
+  }
+  @keyframes clignote {
+    50% { opacity: 0; }
+  }
 }

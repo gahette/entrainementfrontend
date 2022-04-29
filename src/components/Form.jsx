@@ -67,9 +67,15 @@ function Form() {
     return (
         <div className="container">
 
-            {Object.keys(formErrors).length === 0 && isSubmit ? (
-                <div className="send-success">Message envoyé</div>) : ''}
+
+
             <article>
+
+                {Object.keys(formErrors).length === 0 && isSubmit ? (
+                    <div className="send-success">Message envoyé</div>) : (''
+                )}
+
+
                 <div className='photo'>
                     {isloading ? 'Loading..' : locations.map((location, index) =>
                         <img src={location.image.asset.url} key={index}
@@ -143,11 +149,11 @@ function Form() {
                                     />
                                 </div>
 
-
+                                <p>{formErrors.message}</p>
+                                <button className='send'>Envoyer</button>
                             </div>
                         </form>
-                        <p>{formErrors.message}</p>
-                        <button className='send'>Envoyer</button>
+
 
                     </aside>
                 </div>
