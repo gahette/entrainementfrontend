@@ -14,7 +14,7 @@ function Card() {
             .fetch(`*[_type== "pricing"]{
         edition,
         title,
-        mainImage{
+        image{
         asset->{
         _id,      
         url
@@ -44,7 +44,7 @@ function Card() {
                                 navigate("/contact")
                             }}
                             >
-                                <img src={pricing.mainImage.asset.url} alt="image d'illustration"/>
+                                <img src={pricing.image.asset.url} alt="image d'illustration"/>
                                 <section>
                                     <span className='title'>{pricing.title}</span>
                                     <article>

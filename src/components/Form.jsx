@@ -28,7 +28,7 @@ function Form() {
         adressePostale,
         email,
         telephone,
-        mainImage{
+        image{
         asset->{
         _id,      
         url
@@ -72,7 +72,7 @@ function Form() {
             <article>
                 <div className='photo'>
                     {isloading ? 'Loading..' : locations.map((location, index) =>
-                        <img src={location.mainImage.asset.url} key={index}
+                        <img src={location.image.asset.url} key={index}
                              alt="photo d'un photographe"/>)}
                 </div>
 

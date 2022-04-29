@@ -11,7 +11,7 @@ function HomePicture() {
         title,
         subtitle,
         slug,
-        mainImage{
+        image{
         asset->{
         _id,
         url
@@ -41,7 +41,7 @@ function HomePicture() {
             </div>
             <div className='home-picture'>
                 {isloading ? 'Loading..' : posts.map((post, index) =>
-                    <img src={post.mainImage.asset.url} key={index}
+                    <img src={post.image.asset.url} key={index}
                          alt="photo de la page d'accueil"/>)}
             </div>
             <div className='home'>
