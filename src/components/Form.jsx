@@ -83,7 +83,7 @@ function Form() {
                             data-netlify="true"
                             onSubmit={handleSubmit}
                         >
-                            <input type"hidden" name="form-name" value="contact"/>
+                            <input type="hidden" name="form-name" value="contact"/>
 
                             <div className="form">
                                 <div className="field">
