@@ -48,29 +48,21 @@ function Form() {
         const errors = {};
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (!values.nom) {
-            errors.nom = "Le nom est requis!";
+            errors.nom = "Un nom est requis!";
         }
         if (!values.email) {
-            errors.email = "Email is required!";
+            errors.email = " un email est requis!";
         } else if (!regex.test(values.email)) {
             errors.email = "Ce n'est pas un format valide!";
         }
         if (!values.message) {
-            errors.message = "Le message est requis";
+            errors.message = "Un message est requis!";
         }
         return errors;
-
-
     };
-
-
     return (
         <div className="container">
-
-
-
             <article>
-
                 {Object.keys(formErrors).length === 0 && isSubmit ? (
                     <div className="send-success">Message envoyé</div>) : (''
                 )}
@@ -158,7 +150,7 @@ function Form() {
                     </aside>
                 </div>
             </article>
-            {/*<div className='where'>*/}
+
             <ul className='local'>
                 {isloading ? 'Loading..' :
                     locations
@@ -177,7 +169,7 @@ function Form() {
                             </li>
                         )}
             </ul>
-            {/*</div>*/}
+
         </div>
     )
 }
