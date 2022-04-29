@@ -42,7 +42,7 @@ function HomePicture() {
             <div className='home-picture'>
                 {isloading ? 'Loading..' : posts.map((post, index) =>
                     <img src={post.image.asset.url} key={index}
-                         alt="photo de la page d'accueil"/>)}
+                         alt={post.image.alt}/>)}
             </div>
             <div className='home'>
                 {isloading ? 'Loading..' : posts.map((post, index) =>
