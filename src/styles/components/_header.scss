@@ -16,9 +16,9 @@
     display: flex;
     justify-content: space-around;
   }
-@include xl {
-  justify-content: space-around;
-}
+  @include xl {
+    justify-content: space-around;
+  }
 
   .logo {
     position: relative;
@@ -51,7 +51,7 @@
     }
     @include md {
       position: relative;
-      top:1rem;
+      top: 1rem;
       width: 150px;
       height: 50px;
       img {

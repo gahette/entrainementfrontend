@@ -18,6 +18,7 @@ $color-3: #D0D1D2;
 body {
   font-family: 'Nova Mono', monospace;
   font-size: 16px;
+  background: $color-2;
 
   @include md {
     font-size: 20px;
