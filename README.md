@@ -1,77 +1,75 @@
+# Évaluation d'entrainement "Développer la partie front-end d'une application web" Studi.
 
+### Projet 
+
+Charles Cantin Photographe amateur souhaite avoir un site web pour passer à la vitesse supérieure :\
+En intégrant son logo\
+Avec 4 pages : "Accueil", "Galerie", "Tarifs et prestations", "contact".
+
+
+
+Languages Front : HTML5, CSS3, JavaScript.\
+Framework : Au choix -> ...
+
+Coté Back : Tout contenu doit être modifiable facilement par Charles Cantin.
+
+
+## Solution choisie
+
+Reactjs pour le Front
+
+Le headless cms Sanity pour le Back
+
+Hébergement sur Netlify. Lien site https://charles-cantin-photographe01.netlify.app/
+
+Pour modifier le contenu https://cantinphotographe.sanity.studio/ (il vous faudra le MDP)
+
+Pour la partie contact j'ai profité de Netlify forms.\
+ainsi pour accéder au message reçu je dois me rendre sur https://app.netlify.com/sites/charles-cantin-photographe01/forms (il vous faudra le MDP)
+
+
+
+
+## Déploiement en local
+
+>Charger les fichiers zip Github\
+"gahette/entrainementfrontend".
+
+>Créer un dossier `my-app` à l'aide de votre terminal, en choisissant l'emplacement où vous le souhaitez ("cd desktop" par exemple)\
+avec la commande :
+
+"npx create-react-app `my-app`"
+
+>Transférer les fichiers dézippés dans le dossier créé et ouvrir le dossier avec votre ide préféré.
+
+>Dans le terminal se placer sur votre dossier\
+"cd `my-app`"\
+et avec l'aide de npm installer toutes les extensions visibles dans le fichier "package.json" du projet.
+
+> Et toujours dans votre terminal lancer la commande "npm start"\
+ouverture du projet dans votre navigateur avec l'adresse local: http://localhost:3000
+
+
+## Logo fourni
 
 ![logo](public/imgs/logo.png)
 
 
-# Getting Started with Create React App
+## Palettes couleurs et polices d'écriture choisies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![assets maquette](public/imgs/Charles Cantin Assets.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Maquette Mobile
 
-### `npm start`
+![maquette mobile](public/imgs/Charles%20Cantin%20Mobile.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Maquette Desktop
 
-### `npm test`
+![maquette desktop](public/imgs/Charles%20Cantin%20Desktop.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#*Certainement des petites différences avec le rendu final, mais tout a été validé par Charles Cantin ;)
 
 
