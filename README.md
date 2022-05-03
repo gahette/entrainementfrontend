@@ -57,7 +57,7 @@ ouverture du projet dans votre navigateur avec l'adresse local: http://localhost
 
 ## Palettes couleurs et polices d'écriture choisies
 
-![assets maquette](public/imgs/Charles Cantin Assets.png)
+![assets maquette](public/imgs/Charles%20Cantin%20Assets.png)
 
 
 ## Maquette Mobile
@@ -70,6 +70,6 @@ ouverture du projet dans votre navigateur avec l'adresse local: http://localhost
 ![maquette desktop](public/imgs/Charles%20Cantin%20Desktop.png)
 
 
-#*Certainement des petites différences avec le rendu final, mais tout a été validé par Charles Cantin ;)
+# Certainement des petites différences avec le rendu final, mais tout a été validé par Charles Cantin ;)
 
 
