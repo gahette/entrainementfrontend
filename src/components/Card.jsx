@@ -38,7 +38,7 @@ function Card() {
             <ul className='cards'>
                 {isloading ? 'Loading..' :
                     pricings
-                        .sort((a, b) => a.edition - b.edition)
+                        .sort((a, b) => a.edition - b.edition) // tri en fonction du back end
                         .map((pricing, index) =>
                             <li className="card" key={index} onClick={() => {
                                 navigate("/contact")

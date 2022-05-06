@@ -47,7 +47,6 @@ function Form() {
                             data-netlify="true"
                             data-netlify-honeypot="bot-field"
                             onSubmit="submit"
-                              //  {handleSubmit}
                         >
                             <input type="hidden" name="form-name" value="contact"/>
 
@@ -123,7 +122,6 @@ function Form() {
                                     </div>
                                     <div className='courriel' id='courriel'>{location.email}</div>
                                 </section>
-
                             </li>
                         )}
             </ul>

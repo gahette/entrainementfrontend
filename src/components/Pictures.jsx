@@ -12,7 +12,7 @@ function Pictures() {
     const [selectedRadio, setSelectedRadio] = useState("");
 
 
-    //remove duplicates in array cats
+    // supprime les doublons de catégories pour faire un tri par  ordre alphabétique
     const newCats = [...new Map(cats.map((item) => [item["categories"], item])).values()]
 
     const handleClick = (event) => {
@@ -51,7 +51,7 @@ function Pictures() {
                 <ul className="navbar__links" onClick={handleNavbarOpen}>
                     {isloading ? 'Loading..' :
                         newCats
-                            .sort((a, b) => a.categories.localeCompare(b.categories))
+                            .sort((a, b) => a.categories.localeCompare(b.categories)) // tri ordre alphabétique
                             .map((newCat, index) =>
                                 <li className="navbar__link" key={index}>
                                      <span id={newCat.categories.toLocaleString()}

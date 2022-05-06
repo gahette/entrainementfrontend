@@ -7,7 +7,6 @@ En intégrant son logo\
 Avec 4 pages : "Accueil", "Galerie", "Tarifs et prestations", "contact".
 
 
-
 Languages Front : HTML5, CSS3, JavaScript.\
 Framework : Au choix -> ...
 
